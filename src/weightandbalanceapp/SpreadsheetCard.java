@@ -5,12 +5,15 @@ package weightandbalanceapp;
  * Takes the vars from the spreadsheet card area and adds them to this massive comparison class
  *
  */
-public class SpreadsheetCard {
+public class SpreadsheetCard {//AftCargo
 
     private SpreadsheetIO ssio;
 
     private int pob;
     private boolean pobFlag = false;
+    
+    //aftCargoFlag added by Beer 27 Aug 2019
+    private boolean aftCargoFlag = false;
 
     private double zeroFuelWeight;
     private boolean zeroFuelOverWeightFlag = false;
@@ -53,6 +56,10 @@ public class SpreadsheetCard {
         this.pob = (int) tempPob;
         if ((ssio.readStringCell("J49").equals("Check"))) {
             this.pobFlag = true;
+        }
+        //G19 cell check added by Beer 27 Aug 19 F19
+        if ((ssio.readStringCell("G19").equals("Check"))) {
+        	aftCargoFlag = true;
         }
 
         this.zeroFuelWeight = ssio.readCell("C53");
@@ -150,6 +157,11 @@ public class SpreadsheetCard {
 
     public double getTakeOffWeight() {
         return takeOffWeight;
+    }
+    
+    //getter added by Beer, 27 Aug 19
+    public boolean getAftCargoFlag() {
+        return aftCargoFlag;
     }
 
     public void setTakeOffWeight(double takeOffWeight) {

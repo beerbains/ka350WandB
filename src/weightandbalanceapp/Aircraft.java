@@ -295,13 +295,13 @@ public class Aircraft {
     /**
      *
      * Populates the cabinets with weights, can randomly over weight the
-     * aircraft for proof of flags
+     * aircraft for proof of flags//ZERO COG AFT FLAG
      */
     public void addRNGAdditionalLoadCabinets() {
         Random rand = new Random();
         int numberOfLoads = rand.nextInt(7) + 0;
         for (int i = 0; i < numberOfLoads; i++) {
-            int typeOfLoad = rand.nextInt(6) + 0;
+            int typeOfLoad = rand.nextInt(7) + 0;
             while (this.additionalLoadArray.get(typeOfLoad).getWeight() != 0) {
                 typeOfLoad = rand.nextInt(6) + 0;
             }

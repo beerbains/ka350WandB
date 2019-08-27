@@ -65,7 +65,6 @@ public class InputController {
         }
         System.out.println("Ramp Fuel: " + rampFuel + " SUTTO: " + sutto + " Route Fuel: " + routeFuel);
         aircraft.setFuel(new Fuel(rampFuel, sutto, routeFuel));
-        //aircraft.setFuel(new Fuel(3303, 139, 1204));
         int numberOfPilots = rand.nextInt(2) + 1;
         int numberOfPassengers = rand.nextInt(9) + 0; //add zero 
         aircraft.addRNGPilotsToCockpit(numberOfPilots);

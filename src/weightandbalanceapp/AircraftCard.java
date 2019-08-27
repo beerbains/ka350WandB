@@ -42,6 +42,9 @@ public class AircraftCard {
     private boolean zeroFuelFwdCogFlag = false;
     private boolean zeroFuelAftCogFlag = false;
     private boolean zeroFuelExceededCogFlag = false;
+    
+    //Beer edit 1555 h, 27 Aug 19 - adding a Aft Cargo exceeded flag
+    private boolean aftCargoFlag = false;
 
     private boolean takeOffFwdCogFlag = false;
     private boolean takeOffAftCogFlag = false;
@@ -56,10 +59,14 @@ public class AircraftCard {
         this.aircraft = aircraft;
         this.cockpitWeightTotal = aircraft.getCockpitBagsWeight();
         this.pob = aircraft.getPOB();
+        //Beer added cockpitWeightTotal and aftCargo weight check to the below if statement, 27 Aug 19
         if (this.pob < 0 || this.pob > 10 || cockpitWeightTotal>20) {
             this.pobFlag = true;
         }
-
+        
+        if (aircraft.getAdditionalLoadArray().get(6).getWeight()>534) {//change this to 534
+        	this.aftCargoFlag = true;
+        }
 
         this.zeroFuelWeight = aircraft.getWeightArray().get(1).getWeight();
         if (this.zeroFuelWeight > 12500) {
@@ -155,6 +162,15 @@ public class AircraftCard {
     public void setPobFlag(boolean pobFlag) {
         this.pobFlag = pobFlag;
     }
+    //Beer edit 27 Aug 19
+    public boolean getAftCargoFlag() {
+        return aftCargoFlag;
+    }
+
+    public void setAftCargoFlag(boolean aftCargoFlag) {
+        this.aftCargoFlag = aftCargoFlag;
+    }
+    /////////////////
 
     public double getZeroFuelWeight() {
         return zeroFuelWeight;

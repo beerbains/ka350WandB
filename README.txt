@@ -35,3 +35,14 @@ output.txt          Test Results File
     implement this change.
 5.  Issue found with spreadsheet FuelLookup table. "737" was duplicated. Was causing erroneous readings very
     occasionally
+    
+=============Changes by Beer, 28 Aug 19=============
+1.	>20lbs check added to pobFlag in AircraftCard.java to match spreadsheet cell G8.
+2.	Edited pax weights in the persontypes package to match the spreadsheet iaw standard RNZAF weights.
+3.	Created AircraftGenerator.java class to randomly generate a/c basic data (tail number, basic weight and moment).
+4.	Bug Fix: line 291 in Aircraft.java referred to cell F25 for AftCargo, changed to F19.
+5.	Bug Fix: Line 304, in Aircraft.java changed from 6->7, otherwise #6 never generated.
+6.	AircraftCard.java, created aftCargoFlag for Aft Cargo weight exceedence (>534lbs).
+7.	SpreadsheetCard.java, created aftCargoFlag to read cell G19.
+8.	Compare output compares the two aftCargo flags for test pass/fail.
+

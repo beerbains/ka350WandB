@@ -32,6 +32,14 @@ public class CompareOutput {
         } else {
             System.out.println("POB FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isPobFlag() + " SS: " + ssCard.isPobFlag());
         }
+        
+        //Aft Cargo Flag, added by Beer, 27 Aug 19
+        
+        if (aircraftCard.getAftCargoFlag() == ssCard.getAftCargoFlag()) {
+        	System.out.println("AftCargo FLAG\t\t\tTEST PASS" + "\tJava: " + aircraftCard.getAftCargoFlag() + " SS: " + ssCard.getAftCargoFlag());
+        } else {
+            System.out.println("POB FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isPobFlag() + " SS: " + ssCard.isPobFlag());
+        }        
 
         System.out.println("\n==========ZERO FUEL==========");
         if (aircraftCard.getZeroFuelWeight() == ssCard.getZeroFuelWeight()) {
@@ -122,19 +130,22 @@ public class CompareOutput {
             System.out.println("TAKE OFF MAX COG\t\tTEST FAIL" + "\tJava: " + aircraftCard.getTakeOffMaxCog() + " SS: " + ssCard.getTakeOffMaxCog());
         }
         if (aircraftCard.isTakeOffExceededCogFlag() == ssCard.isTakeOffExceededCogFlag()) {
-            System.out.println("ZERO COG EXCEEDED FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffExceededCogFlag() + " SS: " + ssCard.isTakeOffExceededCogFlag());
+            System.out.println("TAKE OFF COG EXCEEDED FLAG\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffExceededCogFlag() + " SS: " + ssCard.isTakeOffExceededCogFlag());
+            System.out.println("Java take-off value: "+ aircraftCard.getTakeOffCog()+"\t SS take-off value: "+ssCard.getTakeOffCog());
+            System.out.println("Java max: "+aircraftCard.getTakeOffMaxCog()+" Java min: "+ aircraftCard.getTakeOffMinCog());
+            System.out.println("SS max: "+ssCard.getTakeOffMaxCog()+" SS min: "+ ssCard.getTakeOffMinCog());
         } else {
-            System.out.println("ZERO COG EXCEEDED FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffExceededCogFlag() + " SS: " + ssCard.isTakeOffExceededCogFlag());
+            System.out.println("TAKE OFF EXCEEDED FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffExceededCogFlag() + " SS: " + ssCard.isTakeOffExceededCogFlag());
         }
         if (aircraftCard.isTakeOffFwdCogFlag() == ssCard.isTakeOffFwdCogFlag()) {
-            System.out.println("ZERO COG FWD FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffFwdCogFlag() + " SS: " + ssCard.isTakeOffFwdCogFlag());
+            System.out.println("TAKE OFF FWD FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffFwdCogFlag() + " SS: " + ssCard.isTakeOffFwdCogFlag());
         } else {
-            System.out.println("ZERO COG FWD FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffFwdCogFlag() + " SS: " + ssCard.isTakeOffFwdCogFlag());
+            System.out.println("TAKE OFF FWD FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffFwdCogFlag() + " SS: " + ssCard.isTakeOffFwdCogFlag());
         }
         if (aircraftCard.isTakeOffAftCogFlag() == ssCard.isTakeOffAftCogFlag()) {
-            System.out.println("ZERO COG AFT FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffAftCogFlag() + " SS: " + ssCard.isTakeOffAftCogFlag());
+            System.out.println("TAKE OFF AFT FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isTakeOffAftCogFlag() + " SS: " + ssCard.isTakeOffAftCogFlag());
         } else {
-            System.out.println("ZERO COG AFT FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffAftCogFlag() + " SS: " + ssCard.isTakeOffAftCogFlag());
+            System.out.println("TAKE OFF AFT FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isTakeOffAftCogFlag() + " SS: " + ssCard.isTakeOffAftCogFlag());
         }
 
         System.out.println("\n==========LANDING==========");
@@ -179,19 +190,19 @@ public class CompareOutput {
             System.out.println("LANDING MAX COG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.getLandingMaxCog() + " SS: " + ssCard.getLandingMaxCog());
         }
         if (aircraftCard.isLandingExceededCogFlag() == ssCard.isLandingExceededCogFlag()) {
-            System.out.println("ZERO COG EXCEEDED FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingExceededCogFlag() + " SS: " + ssCard.isLandingExceededCogFlag());
+            System.out.println("LANDING EXCEEDED FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingExceededCogFlag() + " SS: " + ssCard.isLandingExceededCogFlag());
         } else {
-             System.out.println("ZERO COG EXCEEDED FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingExceededCogFlag() + " SS: " + ssCard.isLandingExceededCogFlag());
+             System.out.println("LANDING EXCEEDED FLAG\t\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingExceededCogFlag() + " SS: " + ssCard.isLandingExceededCogFlag());
         }
         if (aircraftCard.isLandingFwdCogFlag() == ssCard.isLandingFwdCogFlag()) {
-            System.out.println("ZERO COG FWD FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingFwdCogFlag() + " SS: " + ssCard.isLandingFwdCogFlag());
+            System.out.println("LANDING COG FWD FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingFwdCogFlag() + " SS: " + ssCard.isLandingFwdCogFlag());
         } else {
-            System.out.println("ZERO COF FWD FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingFwdCogFlag() + " SS: " + ssCard.isLandingFwdCogFlag());
+            System.out.println("LANDING COF FWD FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingFwdCogFlag() + " SS: " + ssCard.isLandingFwdCogFlag());
         }
         if (aircraftCard.isLandingAftCogFlag() == ssCard.isLandingAftCogFlag()) {
-            System.out.println("ZERO COG AFT FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingAftCogFlag() + " SS: " + ssCard.isLandingAftCogFlag());
+            System.out.println("LANDING COG AFT FLAG\t\tTEST PASS" + "\tJava: " + aircraftCard.isLandingAftCogFlag() + " SS: " + ssCard.isLandingAftCogFlag());
         } else {
-            System.out.println("ZERO COG AFT FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingAftCogFlag() + " SS: " + ssCard.isLandingAftCogFlag());
+            System.out.println("LANDING COG AFT FLAG\t\tTEST FAIL" + "\tJava: " + aircraftCard.isLandingAftCogFlag() + " SS: " + ssCard.isLandingAftCogFlag());
         }
     }
 }
